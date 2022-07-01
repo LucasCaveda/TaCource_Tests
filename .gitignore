@@ -30,4 +30,5 @@ src/main/resources/_testdata.properties
 src/main/resources/_api.properties
 src/main/resources/_database.properties
 src/main/resources/_email.properties
-src/main/resources/_agent.properties
+src/main/resources/agent.properties
+src/main/resources/crypto.key
