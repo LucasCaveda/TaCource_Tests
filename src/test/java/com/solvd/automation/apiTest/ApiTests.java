@@ -5,6 +5,7 @@ import com.qaprosoft.carina.core.foundation.utils.ownership.MethodOwner;
 import com.solvd.automation.api.GetWeather;
 import com.solvd.automation.api.GetWeatherByCity;
 import com.solvd.automation.api.GetWeatherByLatlon;
+import com.solvd.automation.api.GetWeatherMetric;
 import org.skyscreamer.jsonassert.JSONCompareMode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -44,5 +45,13 @@ public class ApiTests {
         getWeatherByLatlon.callAPIExpectSuccess();
         getWeatherByLatlon.validateResponse(JSONCompareMode.STRICT, JsonCompareKeywords.ARRAY_CONTAINS.getKey());
         getWeatherByLatlon.validateResponseAgainstSchema("automationTest/api/_get/_getLatLon/rs.schema");
+    }
+    @Test()
+    @MethodOwner(owner = "Lucas")
+    public void testGetWeatherUsingMetric() {
+        GetWeatherMetric getUsersMethods = new GetWeatherMetric();
+        getUsersMethods.callAPIExpectSuccess();
+        getUsersMethods.validateResponse(JSONCompareMode.STRICT, JsonCompareKeywords.ARRAY_CONTAINS.getKey());
+        getUsersMethods.validateResponseAgainstSchema("automationTest/api/_get/_getMetric/rs.schema");
     }
 }
